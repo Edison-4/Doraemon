@@ -1,20 +1,21 @@
-const belly = document.getElementById('belly');
+const stomachHitbox = document.getElementById('stomach-hitbox');
 const dorayakiBtn = document.getElementById('dorayakiBtn');
-const mouth = document.getElementById('mouth');
-const doraemonContainer = document.getElementById('doraemon');
+const doraemonImg = document.getElementById('doraemon-img');
+const heartContainer = document.getElementById('heart-container');
 
 // Función para crear un corazón flotante
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('floating-heart');
-    heart.innerHTML = '❤️'; // Puedes cambiarlo por '✨' si prefieres destellos
+    heart.innerHTML = '❤️'; // Corazón
     
-    // Posición aleatoria cerca de la boca/barriga
-    const randomLeft = Math.floor(Math.random() * 80) + 40; // Entre 40px y 120px
+    // Posición aleatoria alrededor de la imagen de Doraemon
+    const randomLeft = Math.floor(Math.random() * 200) + 50; // Entre 50px y 250px de ancho
+    const randomTop = Math.floor(Math.random() * 100) + 50; // Entre 50px y 150px de altura
     heart.style.left = `${randomLeft}px`;
-    heart.style.top = '140px'; 
+    heart.style.top = `${randomTop}px`; 
     
-    doraemonContainer.appendChild(heart);
+    heartContainer.appendChild(heart);
     
     // Eliminar el corazón del DOM después de 1.5 segundos (lo que dura la animación)
     setTimeout(() => {
@@ -22,23 +23,29 @@ function createHeart() {
     }, 1500);
 }
 
-function makeDoraemonSmile() {
-    mouth.classList.add('smile');
+// Función que aplica la reacción feliz (corazones y animación)
+function showHappyReaction() {
+    // 1. Activar la animación de escala de la imagen (un efecto de risita)
+    doraemonImg.classList.add('active-reaction');
     
-    // Crear un par de corazones
-    createHeart();
-    setTimeout(createHeart, 200); // El segundo sale con un ligero retraso
-    setTimeout(createHeart, 400); // El tercero un poco después
-    
+    // Quitar la clase de animación después de que termine (0.4s)
     setTimeout(() => {
-        mouth.classList.remove('smile');
-    }, 2000);
+        doraemonImg.classList.remove('active-reaction');
+    }, 400);
+
+    // 2. Crear una lluvia de corazones
+    createHeart();
+    setTimeout(createHeart, 200); 
+    setTimeout(createHeart, 400); 
+    setTimeout(createHeart, 600); 
 }
 
-belly.addEventListener('click', () => {
-    makeDoraemonSmile();
+// Escuchar clics en el estómago
+stomachHitbox.addEventListener('click', () => {
+    showHappyReaction();
 });
 
+// Escuchar clics en el botón de Dorayaki
 dorayakiBtn.addEventListener('click', () => {
-    makeDoraemonSmile();
+    showHappyReaction();
 });
