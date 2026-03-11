@@ -48,7 +48,7 @@ h1 {
     left: 35%; /* Reubicado */
     width: 30%; /* Mucho más pequeño (antes 44%) */
     height: 25%; /* Mucho más pequeño (antes 35%) */
-    background: rgba(255, 0, 0, 0.4); /* Rojo un poco más fuerte para debug */
+    /* background: rgba(255, 0, 0, 0.4); */ /* Rojo un poco más fuerte para debug */
     cursor: pointer;
     border-radius: 50%; /* Más orgánico para un estómago */
     z-index: 5;
