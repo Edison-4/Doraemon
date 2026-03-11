@@ -1,9 +1,11 @@
+// Capturar los elementos del DOM
 const stomachHitbox = document.getElementById('stomach-hitbox');
 const dorayakiBtn = document.getElementById('dorayakiBtn');
 const doraemonImg = document.getElementById('doraemon-img');
 const heartContainer = document.getElementById('heart-container');
+const tituloSaludo = document.getElementById('titulo-saludo'); // El título
 
-// Capturar los elementos de audio del HTML
+// Capturar los elementos de audio
 const stomachAudios = [
     document.getElementById('audio-estomago-1'),
     document.getElementById('audio-estomago-2'),
@@ -11,6 +13,27 @@ const stomachAudios = [
     document.getElementById('audio-estomago-4')
 ];
 const btnAudio = document.getElementById('audio-boton');
+
+// === FUNCIÓN: Saludo Dinámico ===
+function configurarSaludo() {
+    const horaActual = new Date().getHours(); // Obtiene la hora en formato 24h (0-23)
+    let textoSaludo = "";
+
+    if (horaActual >= 6 && horaActual < 12) {
+        textoSaludo = "¡Buenos días! ☀️";
+    } else if (horaActual >= 12 && horaActual < 19) {
+        textoSaludo = "¡Buenas tardes! 🌤️";
+    } else {
+        textoSaludo = "¡Buenas noches! 🌙";
+    }
+
+    // Actualizamos el texto en el HTML
+    tituloSaludo.textContent = textoSaludo + " ¡Interactúa con Doraemon!";
+}
+
+// Ejecutar el saludo apenas carga el script
+configurarSaludo();
+// ======================================
 
 function createHeart() {
     const heart = document.createElement('div');
@@ -48,8 +71,11 @@ stomachHitbox.addEventListener('click', () => {
     
     // Elegir un audio al azar (del 0 al 3)
     const randomAudio = stomachAudios[Math.floor(Math.random() * stomachAudios.length)];
-    randomAudio.currentTime = 0; // Reinicia el audio por si haces clic muy rápido
-    randomAudio.play();
+    // Verificar si el audio existe antes de reproducir
+    if (randomAudio) {
+        randomAudio.currentTime = 0; // Reinicia por si haces clic muy rápido
+        randomAudio.play();
+    }
 });
 
 // Escuchar clics en el botón de Dorayaki
@@ -57,6 +83,8 @@ dorayakiBtn.addEventListener('click', () => {
     showHappyReaction();
     
     // Reproducir el audio específico del botón
-    btnAudio.currentTime = 0; 
-    btnAudio.play();
+    if (btnAudio) {
+        btnAudio.currentTime = 0; 
+        btnAudio.play();
+    }
 });
