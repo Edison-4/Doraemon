@@ -42,14 +42,13 @@ h1 {
 /* Hitbox invisible sobre el estómago */
 .stomach-hitbox {
     position: absolute;
-    top: 55%; /* Aproximadamente sobre el bolsillo */
-    left: 28%; /* Centrado */
-    width: 44%; /* Ancho del área del estómago */
-    height: 35%; /* Altura del área del estómago */
-    /* Temporal para depurar (elimina esta línea para hacerlo invisible) */
-    background: rgba(255, 0, 0, 0.2); 
+    top: 60%; /* Un poco más abajo para centrar en el bolsillo */
+    left: 35%; /* Más centrado horizontalmente */
+    width: 30%; /* Círculo más pequeño (antes 44%) */
+    height: 25%; /* Círculo más pequeño (antes 35%) */
+    background: rgba(255, 0, 0, 0.4); /* Rojo un poco más fuerte para que lo veas bien al probar */
     cursor: pointer;
-    border-radius: 50%; /* Más orgánico para un estómago */
+    border-radius: 50%; 
     z-index: 5;
 }
 
