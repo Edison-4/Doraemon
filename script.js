@@ -20,15 +20,15 @@ function configurarSaludo() {
     let textoSaludo = "";
 
     if (horaActual >= 6 && horaActual < 12) {
-        textoSaludo = "¡Buenos días! ☀️";
+        textoSaludo = "¡Buenos días Ana! ☀️";
     } else if (horaActual >= 12 && horaActual < 19) {
-        textoSaludo = "¡Buenas tardes! 🌤️";
+        textoSaludo = "¡Buenas tardes Ana! 🌤️";
     } else {
-        textoSaludo = "¡Buenas noches! 🌙";
+        textoSaludo = "¡Buenas noches Ana! 🌙";
     }
 
     // Actualizamos el texto en el HTML
-    tituloSaludo.textContent = textoSaludo + " ¡Interactúa con Doraemon!";
+    tituloSaludo.textContent = textoSaludo + " ¡Que bella te vez hoy!";
 }
 
 // Ejecutar el saludo apenas carga el script
