@@ -7,7 +7,7 @@
     <title>Doraemon Interactivo</title>
 </head>
 <body>
-    <h1>¡Interactúa con Doraemon!</h1>
+    <h1 id="titulo-saludo">¡Hola!</h1>
     
     <div class="main-container">
         <div class="doraemon-interaction" id="doraemon-interaction">
@@ -18,7 +18,11 @@
             <div class="heart-container" id="heart-container"></div>
         </div>
         
-        <button class="dorayaki-btn" id="dorayakiBtn">🥞 Dar Dorayaki</button>
+        <div class="dorayaki-btn-container">
+            <button class="dorayaki-btn" id="dorayakiBtn">
+                <img src="dorayaki_sticker.png" alt="Dorayaki" class="dorayaki-icon">
+            </button>
+        </div>
     </div>
 
     <audio id="audio-estomago-1" src="estomago1.mp3"></audio>
@@ -26,7 +30,7 @@
     <audio id="audio-estomago-3" src="estomago3.mp3"></audio>
     <audio id="audio-estomago-4" src="estomago4.mp3"></audio>
     
-    <audio id="audio-boton" src="boton.mp3"></audio>
+    <audio id="audio-boton" src="boton_dorayaki.mp3"></audio>
     
     <script src="script.js"></script>
 </body>
